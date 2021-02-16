@@ -1,9 +1,9 @@
 ---
 
-- name: deploy haproxy
+- name: remove haproxy
   hosts: all
   vars_files:
     - "group_vars/haproxy.yaml"
   gather_facts: true
   roles:
-    - haproxy
+    - fail-haproxy
