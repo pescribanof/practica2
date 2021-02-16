@@ -1,8 +1,0 @@
----
-
-haproxy_rpms: ['haproxy']
-
-haproxy_debs: ['haproxy']
-
-apache1_ip: '192.168.1.141'
-apache2_ip: '192.168.1.142'
