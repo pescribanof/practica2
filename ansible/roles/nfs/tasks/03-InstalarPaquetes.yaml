@@ -1,0 +1,8 @@
+- name: Instalamos los paquetes de NFS
+  command: dnf install nfs-utils net-tools -y
+  
+- name: Activamos el servicio
+  command: systemctl enable nfs-server
+
+- name: Arrancamos el servicio
+  command: systemctl start nfs-server
