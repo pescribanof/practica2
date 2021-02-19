@@ -1,0 +1,22 @@
+---
+
+- name: Tareas Previas de configuración
+  hosts: all
+  become: true  
+  gather_facts: false
+
+  tasks:
+    - name: Configuramos la zona horaria
+      command: timedatectl set-timezone Europe/Madrid
+
+    - name: Instalamos chrony
+      command: dnf install chrony -y
+      
+    - name: Arrancamos chrony
+      command: systemctl enable chronyd && systemctl start chronyd && timedatectl set-ntp true
+      
+    - name: Desactivamos SELinux ya que no lo vamos a utilizar con kubernetes
+      command: sed -i s/=enforcing/=disabled/g /etc/selinux/config
+      
+    - name: Instalamos los paquetes necesarios
+      command: dnf install nfs-utils nfs4-acl-tools wget -y
