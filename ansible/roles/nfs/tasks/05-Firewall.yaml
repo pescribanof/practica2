@@ -1,0 +1,11 @@
+- name: Firewall   service=nfs
+  command: firewall-cmd --permanent --add-service=nfs
+  
+- name: Firewall   service=rpc-bind
+  command: firewall-cmd --permanent --add-service=rpc-bind
+
+- name: Firewall   service=mountd
+  command: firewall-cmd --permanent --add-service=mountd
+  
+- name: Recarga del firewall
+  command: firewall-cmd --reload
