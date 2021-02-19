@@ -1,0 +1,4 @@
+---
+
+- include_tasks: 01-CreacionVolumenes.yaml
+- include-tasks: 02-CreacionFileSystem.yaml
