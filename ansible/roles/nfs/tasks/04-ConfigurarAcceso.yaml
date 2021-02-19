@@ -1,0 +1,7 @@
+- name: Creamos el /etc/exports
+  command: cat /etc/exports /srv/nfs10.0.1.11(rw,sync) /srv/nfs10.0.1.12(rw,sync)
+  
+- name: Releemos el fichero
+  shell: |
+    exportfs -r
+    exportfs -s
