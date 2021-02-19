@@ -21,3 +21,16 @@
       command: firewall-cmd --permanent --add-port=10255/tcp
     - name: Recargamos el Firewall
       command: firewall-cmd --reload
+      
+    - name: Permitimos el acceso al worker
+      command: firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=10.0.1.12/32 accept'
+    - name: Recargamos el firewall
+      command: firewall-cmd --reload
+      
+    - name: Permitimos el acceso de los contenedores
+      command: firewall-cmd --zone=public --permanent --add-rich-rule 'rule family=ipv4 source address=172.17.0.1/16 accept'
+    - name: Recargamos el firewall
+      command: firewall-cmd --reload
+      
+    - name: Instalamos el pluguin CNI
+      command:  kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors all
