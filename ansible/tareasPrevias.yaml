@@ -16,10 +16,10 @@
       command: sudo systemctl enable chronyd 
     
     - name: Arrancamos chrony paso 2
-      sudo systemctl start chronyd 
+      command: sudo systemctl start chronyd 
     
     - name: Activamos la sincronizacion horaria 
-      sudo timedatectl set-ntp true
+      command: sudo timedatectl set-ntp true
       
     - name: Desactivamos SELinux ya que no lo vamos a utilizar con kubernetes
       command: sed -i s/=enforcing/=disabled/g /etc/selinux/config
