@@ -1,0 +1,23 @@
+  
+---
+
+- name: Tareas Comunes 
+  hosts: master
+  become: true  
+  gather_facts: false
+
+  tasks:
+    - name: Firewall port 6443
+      command: firewall-cmd --permanent --add-port=6443/tcp
+    - name: Firewall port 2380
+      command: firewall-cmd --permanent --add-port=2379-2380/tcp
+    - name: Firewall port 10250
+      command: firewall-cmd --permanent --add-port=10250/tcp
+    - name: Firewall port 10251
+      command: firewall-cmd --permanent --add-port=10251/tcp
+    - name: Firewall port 10252
+      command: firewall-cmd --permanent --add-port=10252/tcp
+    - name: Firewall port 10255
+      command: firewall-cmd --permanent --add-port=10255/tcp
+    - name: Recargamos el Firewall
+      command: firewall-cmd --reload
