@@ -1,8 +1,8 @@
   - name: Creamos el volumen físico
-    command: pvcreate /dev/sda
+    command: pvcreate /dev/sda1
 
   - name: Creamos el volume group
-    command: vgcreate data_vg /dev/sda
+    command: vgcreate data_vg /dev/sda1
 
   - name: Comprobamos el resultado
     command: vgdisplay data_vg
