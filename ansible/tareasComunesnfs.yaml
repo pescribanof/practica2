@@ -1,0 +1,14 @@
+  
+---
+
+- name: Tareas Comunes 
+  hosts: all
+  become: true  
+  gather_facts: false
+
+  tasks:
+    - name: Activar transparent masquerading
+      shell: |
+        modprobe br_netfilter
+        firewall-cmd --add-masquerade --permanent
+        firewall-cmd --reload
