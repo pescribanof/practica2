@@ -1,0 +1,13 @@
+  - name: Creamos el filesystem de tipo XFS
+    command: mkfs.xfs /dev/data_vg/nfs_lv
+
+  - name: Creamos el punto de montaje
+    command: mkdir /srv/nfs
+
+  - name: Incluimos se volumen logico en /etc/fstab para que se monte en los inicios de la VM
+    command: echo "/dev/data_vg/nfs_lv  /srv/nfs  xfs defaults  0 0" >> /etc/fsab
+
+  - name: Comprobamos el resultado
+    shell: |
+      mount -a
+      df -hP
