@@ -1,0 +1,14 @@
+  - name: Creamos el volumen físico
+    command: pvcreate /dev/sda
+
+  - name: Creamos el volume group
+    command: vgcreate data_vg /dev/sda
+
+  - name: Comprobamos el resultado
+    command: vgdisplay data_vg
+
+  - name: Creamos el volumen lógico
+    command: lvcreate -l+2559 -n nfs_lv /dev/data_vg
+
+  - name: Comprobamos el resultado
+    command: lvs
