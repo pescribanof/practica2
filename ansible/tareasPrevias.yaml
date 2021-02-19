@@ -13,7 +13,7 @@
       command: dnf install chrony -y
       
     - name: Arrancamos chrony
-      command: systemctl enable chronyd && systemctl start chronyd && timedatectl set-ntp true
+      command: sudo systemctl enable chronyd && sudo systemctl start chronyd && sudo timedatectl set-ntp true
       
     - name: Desactivamos SELinux ya que no lo vamos a utilizar con kubernetes
       command: sed -i s/=enforcing/=disabled/g /etc/selinux/config
