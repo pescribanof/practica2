@@ -1,5 +1,5 @@
 - name: Creamos el /etc/exports
-  command: cat exports.txt >> /etc/exports
+  command: 'cat /exports.txt >> /etc/exports'
   
 - name: Releemos el fichero
   shell: |
