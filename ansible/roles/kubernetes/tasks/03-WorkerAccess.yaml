@@ -1,7 +1,7 @@
 - name: Activamos Firewalld
   shell: |
     systemctl enable firewalld
-    systemctl start firewal
+    systemctl start firewalld
 - name: Permitimos el acceso al worker
   command: firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=10.0.1.12/32 accept'
 - name: Recargamos el firewall
