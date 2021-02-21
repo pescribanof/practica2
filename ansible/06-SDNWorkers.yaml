@@ -1,0 +1,22 @@
+  
+---
+
+- name: Configuramos los workers
+  hosts: workers
+  become: true  
+  gather_facts: false
+
+  tasks:
+    - name: Instalamos Firewalld
+      shell: |
+        dnf install firewalld -y
+        systemctl enable firewalld
+        systemctl start firewalld
+    - name: Abrimos los puertos
+      command: firewall-cmd --zone=public --permanent --add-port={10250,30000-32767}/tcp
+    
+    - name: Recargamos el firewall
+      command: firewall-cmd --reload
+    
+    - name: Nos unimos al cluster
+      command: kubeadm join 10.0.1.11:6443 --token isn814.jip4qhal6trb6af6     --discovery-token-ca-cert-hash sha256:0ff0a6139b532e8c2929dd1e281fb1c3570171eda5ece24b85a56f992c59b5a3
