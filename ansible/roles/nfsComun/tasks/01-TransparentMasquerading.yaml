@@ -1,3 +1,9 @@
+- name: Instalamos Firewalld
+  shell: |
+    dnf install firewalld -y
+    systemctl enable firewalld
+    systemctl start firewalld
+    
 - name: Activar transparent masquerading
   shell: |
     modprobe br_netfilter
