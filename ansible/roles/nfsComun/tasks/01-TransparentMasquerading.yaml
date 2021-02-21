@@ -1,0 +1,23 @@
+- name: Activar transparent masquerading
+  shell: |
+    modprobe br_netfilter
+    firewall-cmd --add-masquerade --permanent
+    firewall-cmd --reload
+    
+- name: Permitir manejo de trafico
+  shell:
+        cmd: |
+          cat > /etc/sysctl.d/k8s.conf << EOF
+          net.bridge.bridge-nf-call-ip6tables = 1
+          net.bridge.bridge-nf-call-iptables = 1
+          EOF
+          >> /etc/sysctl.d/k8s.conf
+
+- name: Aplicamos el cambio en el sysctl
+  command: sysctl --system
+  
+- name: Desactivamos el swap
+  shell: |
+    swapoff -a
+    free -m
+    

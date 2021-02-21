@@ -1,0 +1,8 @@
+- name: Instalamos docker
+  command: dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+- name: Instalamos docker 2
+  command: dnf install docker-ce-19.03.14-3.el8 containerd.io -y
+- name: Activamos docker
+  command: systemctl enable docker
+- name: Arrancamos docker
+  command: systemctl start docker
