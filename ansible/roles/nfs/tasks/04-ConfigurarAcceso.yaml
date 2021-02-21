@@ -5,7 +5,7 @@
           /srv/nfs 10.0.1.11(rw,sync) 
           /srv/nfs 10.0.1.12(rw,sync)
           EOF
-          echo "this is new line" >> /etc/exports
+          >> /etc/exports
           
 - name: Releemos el fichero
   shell: |
