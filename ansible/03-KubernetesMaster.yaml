@@ -1,0 +1,10 @@
+  
+---
+
+- name: Tareas Comunes 
+  hosts: master
+  become: true  
+  gather_facts: false
+
+  roles:
+    - kubernetes
