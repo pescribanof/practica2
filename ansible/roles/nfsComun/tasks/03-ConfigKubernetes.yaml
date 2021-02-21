@@ -18,7 +18,6 @@
   command: systemctl enable kubelet
 - name: Iniciamos kubernetes
   command: systemctl start kubelet   
-- name: Configuramos kubeadm
-  command: kubeadm config images pull
+
       
       
