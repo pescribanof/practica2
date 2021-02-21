@@ -1,0 +1,11 @@
+---
+
+- name: Instalacion del servidor NFS
+  hosts: master
+  become: true  
+  gather_facts: false
+
+  roles:
+    - nfs
+        
+        
