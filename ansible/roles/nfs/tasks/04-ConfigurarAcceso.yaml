@@ -2,8 +2,8 @@
   shell:
         cmd: |
           cat /etc/exports
-          > /srv/nfs 10.0.1.11(rw,sync) 
-          > /srv/nfs 10.0.1.12(rw,sync)
+          /srv/nfs 10.0.1.11(rw,sync) 
+          /srv/nfs 10.0.1.12(rw,sync)
           
   
   
