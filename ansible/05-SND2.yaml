@@ -1,0 +1,11 @@
+  
+---
+
+- name: Tareas Comunes 
+  hosts: master
+  become: true  
+  gather_facts: false
+
+  tasks:
+    - name: Instalamos calico
+      command: kubectl apply -f custom-resources.yaml
