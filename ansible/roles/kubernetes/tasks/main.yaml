@@ -1,0 +1,6 @@
+---
+
+- include_tasks: 01-Firewall.yaml
+- include_tasks: 02-KudeAdm.yaml
+- include_tasks: 03-WorkerAccess.yaml
+- include_tasks: 04-CNI.yaml

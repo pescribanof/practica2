@@ -1,0 +1,13 @@
+- name: Activamos Firewalld
+  shell: |
+    systemctl enable firewalld
+    systemctl start firewal
+- name: Permitimos el acceso al worker
+  command: firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=10.0.1.12/32 accept'
+- name: Recargamos el firewall
+  command: firewall-cmd --reload
+  
+- name: Permitimos el acceso de los contenedores
+  command: firewall-cmd --zone=public --permanent --add-rich-rule 'rule family=ipv4 source address=172.17.0.1/16 accept'
+- name: Recargamos el firewall
+  command: firewall-cmd --reload  

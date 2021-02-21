@@ -1,0 +1,2 @@
+- name: Instalamos el pluguin CNI
+  command:  kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors all
