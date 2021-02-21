@@ -1,0 +1,2 @@
+- name: Calico
+  command: wget https://docs.projectcalico.org/manifests/custom-resources.yaml
